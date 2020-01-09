@@ -8,10 +8,11 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
-use App\Transformers\kendaraanTransformer;
+use App\Transformers\KendaraanTransformer;
 
 class KendaraanController extends RestController
 {
+    //miau
     protected $transformer = KendaraanTransformer::class;
     
      ////menampilkan data
