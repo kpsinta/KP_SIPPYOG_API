@@ -63,7 +63,7 @@ class KendaraanController extends RestController
             $kendaraan->jenis_kendaraan = $request->jenis_kendaraan;
             $kendaraan->kapasitas_maksimum = $request->kapasitas_maksimum;
             $kendaraan->biaya_parkir = $request->biaya_parkir;
-            
+            $kendaraan->biaya_denda = $request->biaya_denda;
             $kendaraan->save();
 
             $response = $this->generateItem($kendaraan);
