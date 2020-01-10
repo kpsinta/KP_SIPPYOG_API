@@ -45,7 +45,7 @@ class PegawaiController extends RestController
             $pegawai->nama_pegawai = $request->nama_pegawai;
             $pegawai->nip_pegawai = $request->nip_pegawai;
             $pegawai->username_pegawai = $request->username_pegawai;
-            $pegawai->password_pegawai = bcrypt($request->password_pegawai);
+            $pegawai->password_pegawai =bcrypt($request->password_pegawai);
             
             $pegawai->save();
     
@@ -63,7 +63,6 @@ class PegawaiController extends RestController
         $nama_pegawai = $request->nama_pegawai;
         $nip_pegawai = $request->nip_pegawai;
         $username_pegawai = $request->username_pegawai;
-        $password_pegawai = $request->password_pegawai;
 
         try{
             $pegawai = Pegawai::find($id_pegawai);
@@ -72,7 +71,6 @@ class PegawaiController extends RestController
             $pegawai->nama_pegawai = $nama_pegawai;
             $pegawai->nip_pegawai = $nip_pegawai;
             $pegawai->username_pegawai = $username_pegawai;
-            $pegawai->password_pegawai = bcrypt($request->password_pegawai);
             $pegawai->save();
 
             $response = $this->generateItem($pegawai);
@@ -129,7 +127,23 @@ class PegawaiController extends RestController
             throw $e;
         }
     }
-
+    public function updatePassword(Request $request)
+    {
+        try {
+            $user = $this->validateUser($request->get('username_pegawai'), $request->get('password_pegawai'));
+            $user->password_pegawai = bcrypt($request->password_pegawai_baru);
+            $user->save();
+            $response = $this->generateItem($user,PegawaiTransformer::class);
+           // dd('sukses ubah password');
+            return $this->sendResponse($response, 201);
+        } catch (InvalidCredentialExcpetion $e) {
+            return $this->sendNotAuthorizeResponse($e->getMessage());
+        } catch (\Exception $e) {
+            throw $e;
+        }
+    }
+   
+    
     // //login untuk website
     // public function login(Request $request)
     // {

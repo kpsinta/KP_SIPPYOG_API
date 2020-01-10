@@ -45,3 +45,4 @@ Route::post('pegawai','PegawaiController@create');
 Route::put('pegawai/{id}','PegawaiController@update');
 Route::delete('pegawai/{id}','PegawaiController@delete');
 Route::POST('/pegawai/mobileauthenticate','PegawaiController@mobileauthenticate');
+Route::POST('/pegawai/updatePassword','PegawaiController@updatePassword');
