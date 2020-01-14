@@ -54,6 +54,7 @@ class TiketController extends RestController
             $tiket->waktu_keluar = null;
             $tiket->no_plat = $request->no_plat;
             $tiket->id_kendaraan_fk = $request->id_kendaraan_fk;
+            $tiket->status_parkir ="Sedang Parkir";
             $tiket->status_tiket ="Ada";
             
             $tiket->save();

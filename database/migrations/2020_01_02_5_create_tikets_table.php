@@ -20,6 +20,7 @@ class CreateTiketsTable extends Migration
             $table->dateTime('waktu_masuk');
             $table->dateTime('waktu_keluar');
             $table->string('no_plat',15);
+            $table->string('status_parkir',30);
             $table->string('status_tiket',30);
             $table->timestamps();
 

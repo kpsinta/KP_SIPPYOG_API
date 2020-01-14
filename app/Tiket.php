@@ -14,6 +14,7 @@ class Tiket extends Model
         'waktu_masuk',
         'waktu_keluar',
         'no_plat',
+        'status_parkir',
         'status_tiket'
     ];
     public function kendaraan(){

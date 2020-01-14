@@ -19,6 +19,7 @@ class TiketTransformer extends TransformerAbstract
             'waktu_masuk' => $tiket->waktu_masuk,
             'waktu_keluar' => $tiket->waktu_keluar,
             'no_plat' => $tiket->no_plat,
+            'status_parkir' => $tiket->status_parkir,
             'status_tiket' => $tiket->status_tiket,
         ];
     }

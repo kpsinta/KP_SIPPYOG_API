@@ -37,11 +37,11 @@ class TransaksiController extends RestController
     //nambah data
     public function create(request $request){
         
-        // $this->validate($request,[
-        //     'waktu_transaksi' => 'required',
-        //     'status_transaksi' => 'required',
-        //     'total_transaksi' => 'required',
-        // ]); 
+        $this->validate($request,[
+            'waktu_transaksi' => 'required',
+ //           'status_transaksi' => 'required',
+            'total_transaksi' => 'required',
+        ]); 
         // //find dia tipe kendaraan apa, nanti dia bayar sesuai itu.  
         // try{
         //     $shift = new Shift;
