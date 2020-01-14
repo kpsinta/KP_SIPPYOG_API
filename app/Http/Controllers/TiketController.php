@@ -32,17 +32,29 @@ class TiketController extends RestController
     public function create(request $request){
         
         $this->validate($request,[
-            'kode_tiket' => 'required',
             'waktu_masuk' => 'required',
             'no_plat' => 'required',
-            'status_tiket' => 'required',
+            'id_kendaraan_fk' => 'required',
         ]);   
         try{
+            date_default_timezone_set('Asia/Jakarta');
             $tiket = new Tiket;
-            $tiket->kode_tiket = $request->kode_tiket;
+
+            $id = array();
+
+            $id = Tiket::orderBy('id_tiket','DESC')->first();
+            if(!$id)
+            $no = 1;
+            else {
+                $no_str = explode('-',$id->kode_tiket);
+                $no = ++$no_str[2];
+            }
+            $tiket->kode_tiket = 'TIK-'.date("d").date("m").date("y").'-'.$no;
             $tiket->waktu_masuk = $request->waktu_masuk;
+            $tiket->waktu_keluar = null;
             $tiket->no_plat = $request->no_plat;
-            $tiket->status_tiket = $request->status_tiket;
+            $tiket->id_kendaraan_fk = $request->id_kendaraan_fk;
+            $tiket->status_tiket ="Ada";
             
             $tiket->save();
             

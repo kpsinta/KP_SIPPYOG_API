@@ -16,7 +16,7 @@ class Tiket extends Model
         'no_plat',
         'status_tiket'
     ];
-    public function kapasitas_parkir(){
+    public function kendaraan(){
         return $this->belongsTo('App\Kendaraan', 'id_kendaraan_fk', 'id_kendaraan');
     }
 

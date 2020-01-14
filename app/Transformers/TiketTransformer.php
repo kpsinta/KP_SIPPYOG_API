@@ -14,7 +14,7 @@ class TiketTransformer extends TransformerAbstract
     {
         return [
             'id_tiket' => $tiket->id_tiket,
-            'jenis_kendaraan' => $tiket->kapasitas_parkir->jenis_kendaraan,
+            'jenis_kendaraan' => $tiket->kendaraan->jenis_kendaraan,
             'kode_tiket'  => $tiket->kode_tiket,
             'waktu_masuk' => $tiket->waktu_masuk,
             'waktu_keluar' => $tiket->waktu_keluar,

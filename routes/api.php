@@ -46,3 +46,8 @@ Route::put('pegawai/{id}','PegawaiController@update');
 Route::delete('pegawai/{id}','PegawaiController@delete');
 Route::POST('/pegawai/mobileauthenticate','PegawaiController@mobileauthenticate');
 Route::POST('/pegawai/updatePassword','PegawaiController@updatePassword');
+
+//tiket - kendaraan masuk
+Route::get('tiket/show','TiketController@show');
+Route::get('tiket/{id}','TiketController@showById');
+Route::post('tiket','TiketController@create');
