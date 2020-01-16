@@ -24,4 +24,9 @@ class Tiket extends Model
     public function pegawai_onduty(){
         return $this->hasMany('App\Pegawai_OnDuty', 'id_tiket_fk','id_tiket');
     }
+
+    public function transaksi()
+    {
+        return $this->hasOne('App\Transaksi');
+    }
 }

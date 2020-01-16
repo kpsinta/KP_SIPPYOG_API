@@ -56,3 +56,8 @@ Route::post('tiket','TiketController@create');
 Route::get('pegawaionduty/show','PegawaiOnDutyController@show');
 Route::get('pegawaionduty/{id}','PegawaiOnDutyController@showById');
 Route::post('pegawaionduty/create_kendaraan_masuk','PegawaiOnDutyController@create_kendaraan_masuk');
+
+//transaksi - kendaraan keluar
+Route::get('transaksi/show','TransaksiController@show');
+Route::get('transaksi/{id}','TransaksiController@showById');
+//Route::post('transaksi','TransaksiController@create');

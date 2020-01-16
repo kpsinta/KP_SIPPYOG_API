@@ -15,9 +15,12 @@ class CreateTransaksisTable extends Migration
     {
         Schema::create('transaksis', function (Blueprint $table) {
             $table->increments('id_transaksi');
+            $table->unsignedInteger('id_tiket_fk');
             $table->timestamp('waktu_transaksi');
             $table->double('total_transaksi');
             $table->timestamps();
+
+            $table->foreign('id_tiket_fk')->references('id_tiket')->on('tikets');
         });
     }
 
