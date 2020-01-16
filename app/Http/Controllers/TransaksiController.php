@@ -39,7 +39,6 @@ class TransaksiController extends RestController
         
         $this->validate($request,[
             'waktu_transaksi' => 'required',
- //           'status_transaksi' => 'required',
             'total_transaksi' => 'required',
         ]); 
         // //find dia tipe kendaraan apa, nanti dia bayar sesuai itu.  

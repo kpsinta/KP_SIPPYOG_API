@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Pegawai_OnDuty extends Model
 {
      //
-     protected $table = 'pegawai_on_duties';      //mendefine tabel yang digunakan
+     protected $table = 'pegawai__on_duties';      //mendefine tabel yang digunakan
      protected $primaryKey = 'id_pegawaiOnDuty';
      protected $fillable = [
         'id_shift_fk',

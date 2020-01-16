@@ -51,3 +51,8 @@ Route::POST('/pegawai/updatePassword','PegawaiController@updatePassword');
 Route::get('tiket/show','TiketController@show');
 Route::get('tiket/{id}','TiketController@showById');
 Route::post('tiket','TiketController@create');
+
+//pegawai on duty
+Route::get('pegawaionduty/show','PegawaiOnDutyController@show');
+Route::get('pegawaionduty/{id}','PegawaiOnDutyController@showById');
+Route::post('pegawaionduty/create_kendaraan_masuk','PegawaiOnDutyController@create_kendaraan_masuk');
