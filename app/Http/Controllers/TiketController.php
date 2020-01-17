@@ -20,7 +20,32 @@ class TiketController extends RestController
         $response = $this->generateCollection($tiket);
         return $this->sendResponse($response);
     }
-
+    public function showByStatusParkir($status)
+    {
+        if($status==0)
+        {
+            $tiket = Tiket::where('status_parkir','Sedang Parkir')->get();
+        }
+        else if($status==1)
+        {
+            $tiket = Tiket::where('status_parkir','Selesai Parkir')->get();
+        }
+        $response = $this->generateCollection($tiket);
+        return $this->sendResponse($response);
+    }
+    public function showByStatusTiket($status)
+    {
+        if($status==0)
+        {
+            $tiket = Tiket::where('status_tiket','Ada')->get();
+        }
+        else if($status==1)
+        {
+            $tiket = Tiket::where('status_tiket','Hilang')->get();
+        }
+        $response = $this->generateCollection($tiket);
+        return $this->sendResponse($response);
+    }
     //tampil by id
     public function showById(request $request, $id_tiket){
         $tiket = Tiket::find($id_tiket);

@@ -51,6 +51,8 @@ Route::POST('/pegawai/updatePassword','PegawaiController@updatePassword');
 Route::get('tiket/show','TiketController@show');
 Route::get('tiket/{id}','TiketController@showById');
 Route::post('tiket','TiketController@create');
+Route::get('tiket/showByStatusParkir/{status}','TiketController@showByStatusParkir');
+Route::get('tiket/showByStatusTiket/{status}','TiketController@showByStatusTiket');
 
 //pegawai on duty
 Route::get('pegawaionduty/show','PegawaiOnDutyController@show');
