@@ -58,11 +58,10 @@ Route::get('tiket/showByStatusTiket/{status}','TiketController@showByStatusTiket
 Route::get('pegawaionduty/show','PegawaiOnDutyController@show');
 Route::get('pegawaionduty/{id}','PegawaiOnDutyController@showById');
 Route::post('pegawaionduty/create_kendaraan_masuk','PegawaiOnDutyController@create_kendaraan_masuk');
-
+Route::post('pegawaionduty/create_kendaraan_keluar','PegawaiOnDutyController@create_kendaraan_keluar');
 //transaksi - kendaraan keluar
 Route::get('transaksi/show','TransaksiController@show');
+Route::get('transaksi/showToday','TransaksiController@showToday');
 Route::get('transaksi/{id}','TransaksiController@showById');
-Route::get('transaksi/show2','TransaksiController@showTest');
-Route::get('transaksi/showCarbon','TransaksiController@showCarbon');
 
-//Route::post('transaksi','TransaksiController@create');
+Route::post('transaksi','TransaksiController@create');

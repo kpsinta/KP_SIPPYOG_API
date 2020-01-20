@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Transaksi;
+use App\Pegawai_OnDuty;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
@@ -13,14 +14,19 @@ use Carbon\Carbon;
 class TransaksiController extends RestController
 {
     protected $transformer = TransaksiTransformer::class;
-   
-    public function showCarbon(){
-        $now = Carbon::now();
-        return($now);
-    }
+  
      //menampilkan data
      public function show(){
         $transaksi = Transaksi::all();
+        $response = $this->generateCollection($transaksi);
+        return $this->sendResponse($response);
+    }
+   
+    public function showToday(){
+        // $now = Carbon::now('Asia/Jakarta');
+        // return($now);
+       // $transaksi = Transaksi::whereDate('waktu_transaksi','=',$now)->get();
+       $transaksi = Transaksi::whereDate('waktu_transaksi',Carbon::today())->get();
         $response = $this->generateCollection($transaksi);
         return $this->sendResponse($response);
     }
@@ -42,24 +48,34 @@ class TransaksiController extends RestController
     public function create(request $request){
         
         $this->validate($request,[
+            'id_tiket_fk' => 'required',
             'waktu_transaksi' => 'required',
             'total_transaksi' => 'required',
-        ]); 
-        // //find dia tipe kendaraan apa, nanti dia bayar sesuai itu.  
-        // try{
-        //     $shift = new Shift;
-        //     $shift->nama_shift = $request->nama_shift;
-        //     $shift->jam_masuk = $`request->jam_masuk;
-        //     $shift->jam_keluar = $request->jam_keluar;
-            
-        //     $shift->save();
-            
-        //     $response = $this->generateItem($shift);
+            'status_tiket' => 'required',
 
-        //     return $this->sendResponse($response,201);
-        // }catch(\Exception $e){
-        //     return $this->sendIseResponse($e->getMessage());
-        // }
+        ]); 
+        try{
+
+            $transaksi = new Transaksi;
+
+            $transaksi->id_tiket_fk = $request->id_tiket_fk;
+            $transaksi->waktu_transaksi = $request->waktu_transaksi;
+            $transaksi->total_transaksi = $request->total_transaksi;
+            
+            $tiket = Tiket::find($request->id_tiket_fk);
+            
+            $tiket->waktu_keluar = $request->waktu_transaksi;
+            $tiket->status_parkir = 'Selesai Parkir';
+            $tiket->status_tiket = $request->status_tiket;
+            $tiket->save();
+            $transaksi->save();
+
+            $response = $this->generateItem($transaksi);
+
+            return $this->sendResponse($response,201);
+        }catch(\Exception $e){
+            return $this->sendIseResponse($e->getMessage());
+        }
     }
     
     //update data
