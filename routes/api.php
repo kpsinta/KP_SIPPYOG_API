@@ -62,4 +62,7 @@ Route::post('pegawaionduty/create_kendaraan_masuk','PegawaiOnDutyController@crea
 //transaksi - kendaraan keluar
 Route::get('transaksi/show','TransaksiController@show');
 Route::get('transaksi/{id}','TransaksiController@showById');
+Route::get('transaksi/show2','TransaksiController@showTest');
+Route::get('transaksi/showCarbon','TransaksiController@showCarbon');
+
 //Route::post('transaksi','TransaksiController@create');

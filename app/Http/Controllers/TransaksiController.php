@@ -9,17 +9,21 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Transformers\TransaksiTransformer;
+use Carbon\Carbon;
 class TransaksiController extends RestController
 {
     protected $transformer = TransaksiTransformer::class;
-    
-     ////menampilkan data
+   
+    public function showCarbon(){
+        $now = Carbon::now();
+        return($now);
+    }
+     //menampilkan data
      public function show(){
         $transaksi = Transaksi::all();
         $response = $this->generateCollection($transaksi);
         return $this->sendResponse($response);
     }
-
     //tampil by id
     public function showById($id_transaksi)
     {
