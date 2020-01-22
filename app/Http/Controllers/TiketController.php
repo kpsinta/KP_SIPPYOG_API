@@ -33,6 +33,14 @@ class TiketController extends RestController
         $response = $this->generateCollection($tiket);
         return $this->sendResponse($response);
     }
+    public function showByKendaraanWhereStatusSedangParkir($id)
+    {
+        
+        $tiket = Tiket::where('status_parkir','Sedang Parkir')->where('id_kendaraan_fk',$id)->get();
+    
+        $response = $this->generateCollection($tiket);
+        return $this->sendResponse($response);
+    }
     public function showByStatusTiket($status)
     {
         if($status==0)

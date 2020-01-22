@@ -53,6 +53,8 @@ Route::get('tiket/{id}','TiketController@showById');
 Route::post('tiket','TiketController@create');
 Route::get('tiket/showByStatusParkir/{status}','TiketController@showByStatusParkir');
 Route::get('tiket/showByStatusTiket/{status}','TiketController@showByStatusTiket');
+
+Route::get('tiket/showByKendaraanWhereStatusSedangParkir/{id}','TiketController@showByKendaraanWhereStatusSedangParkir');
 //pegawai on duty
 Route::get('pegawaionduty/show','PegawaiOnDutyController@show');
 Route::get('pegawaionduty/{id}','PegawaiOnDutyController@showById');
