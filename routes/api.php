@@ -53,7 +53,6 @@ Route::get('tiket/{id}','TiketController@showById');
 Route::post('tiket','TiketController@create');
 Route::get('tiket/showByStatusParkir/{status}','TiketController@showByStatusParkir');
 Route::get('tiket/showByStatusTiket/{status}','TiketController@showByStatusTiket');
-
 Route::get('tiket/showByKendaraanWhereStatusSedangParkir/{id}','TiketController@showByKendaraanWhereStatusSedangParkir');
 //pegawai on duty
 Route::get('pegawaionduty/show','PegawaiOnDutyController@show');
@@ -64,5 +63,12 @@ Route::post('pegawaionduty/create_kendaraan_keluar','PegawaiOnDutyController@cre
 Route::get('transaksi/show','TransaksiController@show');
 Route::get('transaksi/showToday','TransaksiController@showToday');
 Route::get('transaksi/{id}','TransaksiController@showById');
-
 Route::post('transaksi','TransaksiController@create');
+//laporan
+Route::get('laporan/showTransaksiAll_Harian/{waktu_transaksi}','LaporanKendaraanController@showTransaksiAll_Harian');
+Route::get('laporan/showTransaksiAll_Bulanan/{waktu_transaksi}','LaporanKendaraanController@showTransaksiAll_Bulanan');
+Route::get('laporan/showTransaksiAll_Tahunan/{waktu_transaksi}','LaporanKendaraanController@showTransaksiAll_Tahunan');
+
+Route::get('laporan/showByStatusTiketAll_Harian/{status}/{waktu_keluar}','LaporanTiketController@showByStatusTiketAll_Harian');
+Route::get('laporan/showByStatusTiketAll_Bulanan/{status}/{waktu_keluar}','LaporanTiketController@showByStatusTiketAll_Bulanan');
+Route::get('laporan/showByStatusTiketAll_Tahunan/{status}/{waktu_keluar}','LaporanTiketController@showByStatusTiketAll_Tahunan');

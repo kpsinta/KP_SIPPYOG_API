@@ -14,7 +14,7 @@ use App\Transformers\TransaksiTransformer;
 use Carbon\Carbon;
 class TransaksiController extends RestController
 {
-    protected $transformer = TransaksiTransformer::class;
+ 
   
      //menampilkan data
      public function show(){
