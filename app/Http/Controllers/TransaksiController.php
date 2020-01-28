@@ -15,7 +15,8 @@ use Carbon\Carbon;
 class TransaksiController extends RestController
 {
  
-  
+    protected $transformer = TransaksiTransformer::class;
+
      //menampilkan data
      public function show(){
         $transaksi = Transaksi::all();
@@ -28,7 +29,7 @@ class TransaksiController extends RestController
         // return($now);
        // $transaksi = Transaksi::whereDate('waktu_transaksi','=',$now)->get();
        $transaksi = Transaksi::whereDate('waktu_transaksi',Carbon::today())->get();
-       $response = $this->generateCollection($transaksi);
+        $response = $this->generateCollection($transaksi);
         return $this->sendResponse($response);
     }
     //tampil by id
