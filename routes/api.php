@@ -64,11 +64,13 @@ Route::get('transaksi/show','TransaksiController@show');
 Route::get('transaksi/showToday','TransaksiController@showToday');
 Route::get('transaksi/{id}','TransaksiController@showById');
 Route::post('transaksi','TransaksiController@create');
-//laporan
+
+//laporan kendaraan - get jumlah, get pendapatan
 Route::get('laporan/showTransaksiAll_Harian/{waktu_transaksi}','LaporanKendaraanController@showTransaksiAll_Harian');
 Route::get('laporan/showTransaksiAll_Bulanan/{waktu_transaksi}','LaporanKendaraanController@showTransaksiAll_Bulanan');
 Route::get('laporan/showTransaksiAll_Tahunan/{waktu_transaksi}','LaporanKendaraanController@showTransaksiAll_Tahunan');
 
+//tiket hilang
 Route::get('laporan/showByStatusTiketAll_Harian/{status}/{waktu_keluar}','LaporanTiketController@showByStatusTiketAll_Harian');
 Route::get('laporan/showByStatusTiketAll_Bulanan/{status}/{waktu_keluar}','LaporanTiketController@showByStatusTiketAll_Bulanan');
 Route::get('laporan/showByStatusTiketAll_Tahunan/{status}/{waktu_keluar}','LaporanTiketController@showByStatusTiketAll_Tahunan');
