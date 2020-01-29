@@ -22,7 +22,10 @@ class LaporanTiketController extends RestController
     }
     public function showByStatusTiketAll_Bulanan($status, $waktu_keluar)
     {
-        $tiket = Tiket::whereMonth('waktu_keluar',$waktu_keluar)->where('status_tiket',$status)->get();
+        $year = explode('-',$waktu_keluar)[0];
+        $month = explode('-',$waktu_keluar)[1];
+
+        $tiket = Tiket::whereMonth('waktu_keluar',$month)->whereYear('waktu_keluar',$year)->where('status_tiket',$status)->get();
         $response = $this->generateCollection($tiket);
         return $this->sendResponse($response);
      }
@@ -31,6 +34,5 @@ class LaporanTiketController extends RestController
         $tiket = Tiket::whereYear('waktu_keluar',$waktu_keluar)->where('status_tiket',$status)->get();
         $response = $this->generateCollection($tiket);
         return $this->sendResponse($response);
-     }
- 
+     } 
 }

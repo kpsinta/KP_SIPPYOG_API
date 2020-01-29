@@ -65,7 +65,7 @@ Route::get('transaksi/showToday','TransaksiController@showToday');
 Route::get('transaksi/{id}','TransaksiController@showById');
 Route::post('transaksi','TransaksiController@create');
 
-//laporan kendaraan - get jumlah, get pendapatan
+//get pendapatan
 Route::get('laporan/showTransaksiAll_Harian/{waktu_transaksi}','LaporanKendaraanController@showTransaksiAll_Harian');
 Route::get('laporan/showTransaksiAll_Bulanan/{waktu_transaksi}','LaporanKendaraanController@showTransaksiAll_Bulanan');
 Route::get('laporan/showTransaksiAll_Tahunan/{waktu_transaksi}','LaporanKendaraanController@showTransaksiAll_Tahunan');

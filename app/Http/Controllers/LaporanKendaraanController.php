@@ -20,7 +20,9 @@ class LaporanKendaraanController extends RestController
         return $this->sendResponse($response);
     }
     public function showTransaksiAll_Bulanan($waktu_transaksi){
-        $transaksi = Transaksi::whereMonth('waktu_transaksi',$waktu_transaksi)->get();
+        $year = explode('-',$waktu_transaksi)[0];
+        $month = explode('-',$waktu_transaksi)[1];
+        $transaksi = Transaksi::whereMonth('waktu_transaksi',$month)->whereYear('waktu_transaksi',$year)->get();
          $response = $this->generateCollection($transaksi);
          return $this->sendResponse($response);
      }

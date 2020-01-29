@@ -19,6 +19,7 @@ class TransaksiTransformer extends TransformerAbstract
             'id_tiket_fk' => $transaksi->id_tiket_fk,
             'biaya_parkir' => $transaksi->tiket->kendaraan->biaya_parkir,
             'biaya_denda' => $transaksi->tiket->kendaraan->biaya_denda,
+            'id_kendaraan_fk' => $transaksi->tiket->id_kendaraan_fk,
             'jenis_kendaraan' => $transaksi->tiket->kendaraan->jenis_kendaraan,
             'kode_tiket'  => $transaksi->tiket->kode_tiket,
             'waktu_masuk' => $transaksi->tiket->waktu_masuk,
