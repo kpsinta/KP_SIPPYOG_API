@@ -28,7 +28,7 @@ class TransaksiController extends RestController
         // $now = Carbon::now('Asia/Jakarta');
         // return($now);
        // $transaksi = Transaksi::whereDate('waktu_transaksi','=',$now)->get();
-       $transaksi = Transaksi::whereDate('waktu_transaksi',Carbon::today())->get();
+       $transaksi = Transaksi::whereDate('waktu_transaksi',Carbon::today())->withTrashed()->get();
         $response = $this->generateCollection($transaksi);
         return $this->sendResponse($response);
     }
