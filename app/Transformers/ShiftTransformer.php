@@ -17,6 +17,9 @@ class ShiftTransformer extends TransformerAbstract
             'nama_shift' => $shift->nama_shift,
             'jam_masuk'  => $shift->jam_masuk,
             'jam_keluar' => $shift->jam_keluar,
+            'created_at' => $shift->created_at,
+            'updated_at' => $shift->updated_at,
+            'deleted_at' => $shift->deleted_at,
         ];
     }
 }

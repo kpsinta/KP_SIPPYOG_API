@@ -21,6 +21,7 @@ class CreatePegawaisTable extends Migration
             $table->string('username_pegawai',15);
             $table->string('password_pegawai',100);
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('id_role_fk')->references('id_role')->on('roles');
 

@@ -19,6 +19,10 @@ class PegawaiTransformer extends TransformerAbstract
             'username_pegawai' => $pegawai->username_pegawai,
             'password_pegawai' => $pegawai->password_pegawai,
             'id_role_fk' => $pegawai->id_role_fk,
+            'nama_role' => $pegawai->role->nama_role,
+            'created_at' => $pegawai->created_at,
+            'updated_at' => $pegawai->updated_at,
+            'deleted_at' => $pegawai->deleted_at,
         ];
     }
 }

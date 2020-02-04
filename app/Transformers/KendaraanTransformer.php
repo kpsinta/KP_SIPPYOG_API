@@ -18,6 +18,9 @@ class KendaraanTransformer extends TransformerAbstract
             'kapasitas_maksimum'  => $k->kapasitas_maksimum,
             'biaya_parkir' => $k->biaya_parkir,
             'biaya_denda' => $k->biaya_denda,
+            'created_at' => $k->created_at,
+            'updated_at' => $k->updated_at,
+            'deleted_at' => $k->deleted_at,
         ];
     }
 }

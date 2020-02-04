@@ -20,6 +20,9 @@ class PegawaiOnDutyTransformer extends TransformerAbstract
             'id_transaksi_fk' => $pegawaionduty->id_transaksi_fk,
             'nama_pegawai' => $pegawaionduty->pegawai->nama_pegawai,
             'nama_shift' => $pegawaionduty->shift->nama_shift,
+            'created_at' => $pegawaionduty->created_at,
+            'updated_at' => $pegawaionduty->updated_at,
+            'deleted_at' => $pegawaionduty->deleted_at,
         ];
     }
 }

@@ -23,6 +23,7 @@ class CreateTiketsTable extends Migration
             $table->string('status_parkir',30);
             $table->string('status_tiket',30);
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('id_kendaraan_fk')->references('id_kendaraan')->on('kendaraans');
         });

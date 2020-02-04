@@ -20,6 +20,7 @@ class CreatePegawaiOnDutiesTable extends Migration
             $table->unsignedInteger('id_tiket_fk');
             $table->unsignedInteger('id_transaksi_fk');
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('id_shift_fk')->references('id_shift')->on('shifts');
             $table->foreign('id_pegawai_fk')->references('id_pegawai')->on('pegawais');

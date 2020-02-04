@@ -16,7 +16,7 @@ class TiketController extends RestController
     
      ////menampilkan data
      public function show(){
-        $tiket = Tiket::all();
+        $tiket = Tiket::withTrashed()->get();
         $response = $this->generateCollection($tiket);
         return $this->sendResponse($response);
     }
@@ -24,11 +24,11 @@ class TiketController extends RestController
     {
         if($status==0)
         {
-            $tiket = Tiket::where('status_parkir','Sedang Parkir')->get();
+            $tiket = Tiket::where('status_parkir','Sedang Parkir')->withTrashed()->get();
         }
         else if($status==1)
         {
-            $tiket = Tiket::where('status_parkir','Selesai Parkir')->get();
+            $tiket = Tiket::where('status_parkir','Selesai Parkir')->withTrashed()->get();
         }
         $response = $this->generateCollection($tiket);
         return $this->sendResponse($response);
@@ -36,7 +36,7 @@ class TiketController extends RestController
     public function showByKendaraanWhereStatusSedangParkir($id)
     {
         
-        $tiket = Tiket::where('status_parkir','Sedang Parkir')->where('id_kendaraan_fk',$id)->get();
+        $tiket = Tiket::where('status_parkir','Sedang Parkir')->where('id_kendaraan_fk',$id)->withTrashed()->get();
     
         $response = $this->generateCollection($tiket);
         return $this->sendResponse($response);
@@ -45,11 +45,11 @@ class TiketController extends RestController
     {
         if($status==0)
         {
-            $tiket = Tiket::where('status_tiket','Ada')->get();
+            $tiket = Tiket::where('status_tiket','Ada')->withTrashed()->get();
         }
         else if($status==1)
         {
-            $tiket = Tiket::where('status_tiket','Hilang')->get();
+            $tiket = Tiket::where('status_tiket','Hilang')->withTrashed()->get();
         }
         $response = $this->generateCollection($tiket);
         return $this->sendResponse($response);

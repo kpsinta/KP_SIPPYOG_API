@@ -3,10 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Transaksi extends Model
 {
      //
+     use SoftDeletes;
      protected $table = 'transaksis';      //mendefine tabel yang digunakan
      protected $primaryKey = 'id_transaksi';
      protected $fillable = [
@@ -21,6 +23,6 @@ class Transaksi extends Model
 
     public function tiket()
     {
-        return $this->belongsTo('App\Tiket', 'id_tiket_fk', 'id_tiket');
+        return $this->belongsTo('App\Tiket', 'id_tiket_fk', 'id_tiket')->withTrashed();
     }
 }

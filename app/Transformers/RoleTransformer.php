@@ -15,6 +15,9 @@ class RoleTransformer extends TransformerAbstract
         return [
             'id_role' => $role->id_role,
             'nama_role' => $role->nama_role,
+            'created_at' => $role->created_at,
+            'updated_at' => $role->updated_at,
+            'deleted_at' => $role->deleted_at,
         ];
     }
 }

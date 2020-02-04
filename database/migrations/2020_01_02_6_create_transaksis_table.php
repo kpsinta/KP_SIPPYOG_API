@@ -19,6 +19,7 @@ class CreateTransaksisTable extends Migration
             $table->timestamp('waktu_transaksi');
             $table->double('total_transaksi');
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('id_tiket_fk')->references('id_tiket')->on('tikets');
         });

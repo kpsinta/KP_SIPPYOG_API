@@ -27,6 +27,9 @@ class TransaksiTransformer extends TransformerAbstract
             'no_plat' => $transaksi->tiket->no_plat,
             'status_parkir' => $transaksi->tiket->status_parkir,
             'status_tiket' => $transaksi->tiket->status_tiket,
+            'created_at' => $transaksi->created_at,
+            'updated_at' => $transaksi->updated_at,
+            'deleted_at' => $transaksi->deleted_at,
         ];
     }
 }

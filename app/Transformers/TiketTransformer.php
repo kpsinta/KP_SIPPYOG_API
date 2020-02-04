@@ -24,6 +24,9 @@ class TiketTransformer extends TransformerAbstract
             'no_plat' => $tiket->no_plat,
             'status_parkir' => $tiket->status_parkir,
             'status_tiket' => $tiket->status_tiket,
+            'created_at' => $tiket->created_at,
+            'updated_at' => $tiket->updated_at,
+            'deleted_at' => $tiket->deleted_at,
         ];
     }
 }

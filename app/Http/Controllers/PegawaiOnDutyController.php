@@ -16,7 +16,7 @@ class PegawaiOnDutyController extends RestController
     
      ////menampilkan data
      public function show(){
-        $pod = Pegawai_OnDuty::all();
+        $pod = Pegawai_OnDuty::withTrashed()->get();
         $response = $this->generateCollection($pod);
         return $this->sendResponse($response);
     }

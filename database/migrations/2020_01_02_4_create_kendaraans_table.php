@@ -20,6 +20,7 @@ class CreateKendaraansTable extends Migration
             $table->double('biaya_parkir');
             $table->double('biaya_denda');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
