@@ -57,7 +57,6 @@ Route::get('tiket/showByKendaraanWhereStatusSedangParkir/{id}','TiketController@
 //pegawai on duty
 Route::get('pegawaionduty/show','PegawaiOnDutyController@show');
 Route::get('pegawaionduty/showByIdTiket/{id}','PegawaiOnDutyController@showByIdTiket');
-
 Route::get('pegawaionduty/{id}','PegawaiOnDutyController@showById');
 Route::post('pegawaionduty/create_kendaraan_masuk','PegawaiOnDutyController@create_kendaraan_masuk');
 Route::post('pegawaionduty/create_kendaraan_keluar','PegawaiOnDutyController@create_kendaraan_keluar');
@@ -76,3 +75,9 @@ Route::get('laporan/showTransaksiAll_Tahunan/{waktu_transaksi}','LaporanKendaraa
 Route::get('laporan/showByStatusTiketAll_Harian/{status}/{waktu_keluar}','LaporanTiketController@showByStatusTiketAll_Harian');
 Route::get('laporan/showByStatusTiketAll_Bulanan/{status}/{waktu_keluar}','LaporanTiketController@showByStatusTiketAll_Bulanan');
 Route::get('laporan/showByStatusTiketAll_Tahunan/{status}/{waktu_keluar}','LaporanTiketController@showByStatusTiketAll_Tahunan');
+
+//Deskripsi Parkir
+Route::get('deskripsi/show','DeskripsiParkirController@show');
+Route::post('deskripsi','DeskripsiParkirController@create');
+Route::put('deskripsi/{id}','DeskripsiParkirController@update');
+Route::delete('deskripsi/{id}','DeskripsiParkirController@delete');
