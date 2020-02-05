@@ -27,6 +27,12 @@ class PegawaiOnDutyController extends RestController
         $response = $this->generateItem($pod);
         return $this->sendResponse($response);
     }
+    //tampil by id
+    public function showByIdTiket($id){
+        $pod = Pegawai_OnDuty::where('id_tiket_fk',$id)->where('id_transaksi_fk',null)->withTrashed()->get();
+        $response = $this->generateCollection($pod);
+        return $this->sendResponse($response);
+    }
     public function create_kendaraan_masuk(request $request){
         $this->validate($request,[
             'id_shift_fk' => 'required',
